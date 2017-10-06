@@ -151,6 +151,35 @@ class ChangePassword {
 });
 ```
 
+### VueJs
+```js
+import Vue from 'vue';
+import Logger from 'utils/logger';
+import Notification from 'utils/notification';
+
+Vue.component('change-password', {
+  template: '<div>{{ /* template */ }}</div>'
+  data() {
+      return {
+        password: ''
+      };
+  },
+  methods: {
+      changePassword() {
+          this.$store.dispatch(
+               'auth/updatePassword',
+                {password: this.password}
+              ).then(() => {
+                Notification.info('Password has been changed successfully.');
+              }).catch((error) => {
+                Logger.error(error);
+                Notification.error('There was an error. Please try again.');
+              });
+      }
+  }
+});
+```
+
 # Default inputs
 
 ### AngularJS
