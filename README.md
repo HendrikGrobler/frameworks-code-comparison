@@ -156,6 +156,7 @@ class ChangePassword {
 import Vue from 'vue';
 import Logger from 'utils/logger';
 import Notification from 'utils/notification';
+import Auth from 'actions/auth';
 
 Vue.component('change-password', {
   template: '<div>{{ /* template */ }}</div>'
@@ -166,12 +167,9 @@ Vue.component('change-password', {
   },
   methods: {
       changePassword() {
-          this.$store.dispatch(
-               'auth/updatePassword',
-                {password: this.password}
-              ).then(() => {
+          Auth.changePassword(this.state,password).then(() => {
                 Notification.info('Password has been changed successfully.');
-              }).catch((error) => {
+              }).catch(error => {
                 Logger.error(error);
                 Notification.error('There was an error. Please try again.');
               });
