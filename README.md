@@ -358,6 +358,23 @@ Templates in React are written inside the JavaScript file using the [JSX languag
 </PrimaryButton>
 ```
 
+### VueJs
+
+Component props can be passed in as strings using a literal syntax, e.g `size="big"` or as actual values using `v-bind`, e.g. `v-bind:disabled="true"`.
+
+:arrow_right: https://vuejs.org/v2/guide/components.html#Literal-vs-Dynamic
+
+Events can be listened for using `v-on` combined with the event name, and a method name as the value, e.g `v-on:click="saveContent"`.
+
+:arrow_right: https://vuejs.org/v2/guide/events.html#Method-Event-Handlers
+```html
+<primary-button size="big"
+                v-bind:disabled="true"
+                v-on:click="saveContent">
+    Save
+</primary-button>
+```
+
 # Interpolation
 
 > TODO
